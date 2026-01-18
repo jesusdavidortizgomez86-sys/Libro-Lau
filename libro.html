@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Libro para Laura</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  background:#0b1c2d;
+  color:white;
+  font-family: "Georgia", cursive;
+  text-align:center;
+}
+
+.page{
+  display:none;
+  min-height:100vh;
+  padding:40px;
+}
+
+.page.active{
+  display:block;
+}
+
+button{
+  font-size:30px;
+  margin:20px;
+  background:none;
+  border:none;
+  color:white;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page active">
+  <h1>PARA: LAURA NAVAS</h1>
+  <p>(My favorite player)</p>
+  <p>De: su amigo<br>alias: vaca solitaria 😔</p>
+</div>
+
+<div class="page">
+  <p>
+Hola, soy yoo. Sabes, nunca pensé que haría algo como esto,
+pero me alegra que haya sido para ti.
+  </p>
+</div>
+
+<div class="page">
+  <p>
+Me siento con suerte de haberte conocido.
+Definitivamente ha sido una de las mejores cosas que me han pasado en la vida.
+  </p>
+</div>
+
+<div class="page">
+  <p>
+Te quiero demasiado, Laura.
+Gracias por estar.
+  </p>
+</div>
+
+<button onclick="prev()">⬅</button>
+<button onclick="next()">➡</button>
+
+<script>
+let current = 0;
+const pages = document.querySelectorAll('.page');
+
+function showPage(i){
+  pages.forEach(p=>p.classList.remove("active"));
+  pages[i].classList.add("active");
+}
+
+function next(){
+  if(current < pages.length - 1){
+    current++;
+    showPage(current);
+  }
+}
+
+function prev(){
+  if(current > 0){
+    current--;
+    showPage(current);
+  }
+}
+</script>
+
+</body>
+</html>
